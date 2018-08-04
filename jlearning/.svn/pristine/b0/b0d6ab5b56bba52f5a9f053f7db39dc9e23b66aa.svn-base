@@ -1,0 +1,5 @@
+package cn.tedu.qaa.controller;
+
+public class UserController {
+
+}

@@ -1,0 +1,241 @@
+@charset "utf-8";
+
+
+/*<!--bootstrap 3.3.7--> */
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+
+/*引入字体*/
+
+header {
+    /*设置阴影*/
+    box-shadow: 0px 5px 5px gray;
+    /*background-color: #222222;*/
+    /*渐变*/
+    background: linear-gradient(rgba(0, 0, 0, .25), #333);
+    position: relative;
+}
+
+.question-page-topbar {
+    /*头部导航条样式*/
+    height: 100px;
+}
+
+.topbar-leftdiv {
+    height: 100%;
+}
+
+.header-logo>h1>a {
+    /*设置阴影 text-shadow: 往右0px 往下0px 扩散10px aqua;*/
+    font-family: serif;
+    color: white;
+    text-decoration: none;
+}
+
+.header-logo {
+    line-height: 100px;
+    margin-top: 28px;
+}
+
+
+.header-search {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transition: width 1s ease;
+    display: inline-block;
+    margin-bottom: 35px;
+}
+
+.topbar-leftdiv>form>button {
+    position: absolute;
+    right: 0;
+}
+
+
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42858;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+
+.topbar-rightdiv {
+    height: 100%;
+}
+
+.userlink {
+    margin-right: 5px;
+}
+
+.regandlog {
+    position: relative;
+    top: 31px;
+	display: block;
+}
+
+
+
+
+/* 体��none�区域 */
+
+article {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.question-page-artical {
+    /*中间区域*/
+    height: 100%;
+    box-shadow: 0px 5px 5px gray;
+    padding-top: 20px;
+}
+
+.artical-leftdiv {
+    width: 186px;
+    padding-top: 39px;
+    border-right: 1px solid gray;
+    height: 100%;
+    float: left;
+}
+
+.top-left-div>ul>li {
+    border-radius: 0px;
+}
+
+
+.top-left-div>ul>li:hover {
+    width: 200px;
+}
+
+.top-left-div>.nav-pills>li>a {
+    border-radius: 0px;
+    border-bottom: 1px solid gray;
+}
+
+.top-left-div>.nav-pills>.active>a {
+    background-color: #674d44;
+}
+
+.top-left-div>.nav-pills>li>a:hover {
+    background-color: gray;
+    color: white;
+}
+
+.artical-rightdiv {
+    border-left: 1px solid gray;
+    float: left;
+    padding-left: 20px;
+}
+
+
+
+
+
+/* 脚部区域 */
+
+.question-page-footer {
+    /*脚部样式*/
+    height: 35px;
+    overflow: hidden;
+}
+
+footer {
+    border-top: 1px solid gray;
+    padding: 10px 0px 10px 0px;
+    background-color: gray;
+    background: linear-gradient(#333, rgba(0, 0, 0, .25));
+    position: relative;
+    clear: both;
+    box-shadow: 0px -5px 5px grey;
+}
+
+
+
+
+
+.inner-footer>.footer-logo {
+    float: left;
+}
+
+.footer-logo>img {
+    width: 70%;
+}
+
+
+.btn-meau {
+    height: 44px;
+    width: 100%;
+    position: fixed;
+    width: 44px;
+    overflow: hidden;
+    background-color: #ccc;
+    border-radius: 8px;
+	justify-content: center;
+	right: 20px;
+	bottom: 20%;
+	line-height:44px ;
+	    padding-top: 15px;
+}
+
+a#backtop:hover{
+	background-color: gray;
+}
+
+.modal-content{
+	margin-top: 140px;
+	width: 437px;
+    margin: 0 auto;
+	    height: 380px;
+}
+.modal-dialog{
+	margin-top: 100px;
+}
+
+.modal-footer{
+	    text-align: center;
+}
+
+.login-wrap{
+	padding: 0 100px;
+}
+
+.flogbtn{
+	width: 100%;
+}
+
+.login_alert{
+	position: absolute;
+	bottom: 145px;
+	left: 170px;
+	color: #ff0000;
+}
+.dropdown-menu{
+	min-width: 92px;
+}
+.logined-drop{
+	position: absolute;
+	top: 31px;
+}

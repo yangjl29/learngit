@@ -1,0 +1,65 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<!--管理页面-->
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="../assets/css/">
+	</head>
+	<body>
+		<header>
+		<a id="top" name="top"></a>
+		<div class="container question-page-topbar">
+			<div class="col-sm-8 col-md-9 col-lg-9 topbar-leftdiv">
+				<div class="header-logo">
+					<h1>
+						<a class="hlogo" href="questions.html">JLearning</a>
+					</h1>
+				</div>
+				<form action="#" method="get" class="header-search  hidden-sm hidden-xs ">
+					<button class="btn btn-link">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+					<input type="text" name="q" class="form-control" autocomplete="off" />
+				</form>
+			</div>
+			<div class="col-sm-4 col-md-3 col-lg-3 text-right topbar-rightdiv">
+				<ul>
+					<li class="regandlog">
+						<a class="reglink userlink" href="${pageContext.request.contextPath}/user/reg.do">
+							<button type="button" class="btn btn-primary  regbtn">注册</button>
+						</a>
+						<a class="loginlink userlink">
+							<button type="button" class="btn btn-default  logbtn" data-toggle="modal" data-target="#myModal">登录</button>
+						</a>
+					</li>
+					<li class="logined-drop">
+						<div class="btn-group">
+							<button type="button" class="start-btn btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">开始
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="/ask">提问题</a>
+								</li>
+								<li>
+									<a href="/write">写文章</a>
+								</li>
+								<li>
+									<a href="/record">记笔记</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	</body>
+</html>

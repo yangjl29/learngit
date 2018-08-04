@@ -1,0 +1,24 @@
+$(document).ready(function () {
+	
+	$(".regbtn").click(function(){
+		$(this).hide(500);
+	});
+	
+	$(".hlogo").click(function(){
+		if($(".regandlog").css("display")!="none"){
+			$(".regandlog").css("display","none");
+		}
+		else{
+			$(".regandlog").css("display","block");
+		}
+		
+	});
+	
+	$(".glyphicon-menu-up").click(function(){
+		$(".login-banner").slideUp(500);
+	});
+	
+	
+	
+});
+
