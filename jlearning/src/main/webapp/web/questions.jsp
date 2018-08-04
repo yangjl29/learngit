@@ -18,20 +18,20 @@
 
 <body>
 	<header>
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="myModal"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="myModalLabel">登录</h4>
 					</div>
-					<form action="${pageContext.request.contextPath}/user/login.do" method="post">
+					<form action="" method="post">
 						<div class="login-wrap">
 							<div class="modal-body">
 								<div class="form-group">
-									<label for="username" class="control-label">用户名或Email</label>
-									<input type="text" class="form-control" name="username" tabindex="1" required="required" oninput="setCustomValid('')" placeholder="用户名 或 Email"
-									    autocomplete="off">
+									<label for="username" class="control-label" >用户名或Email</label>
+									<input type="text" id="username" class="form-control" name="username" tabindex="1" required="required" oninput="setCustomValid('')" placeholder="用户名 或 Email"
+									    autocomplete="off" autofocus="autofocus">
 								</div>
 								<div class="form-group">
 									<label class="control-label">密码</label>
@@ -43,7 +43,7 @@
 							</div>
 							<div class="login_alert">账号或密码错误</div>
 							<div class="modal-footer">
-								<button type="submit" class="flogbtn btn btn-success" tabindex="3">登录</button>
+								<button type="button" id="modal_login_btn" class="flogbtn btn btn-success" tabindex="3">登录</button>
 							</div>
 						</div>
 					</form>
@@ -74,7 +74,7 @@
 							<button type="button" class="btn btn-primary  regbtn">注册</button>
 						</a>
 						<a class="loginlink userlink">
-							<button type="button" class="btn btn-default  logbtn" data-toggle="modal" data-target="#myModal">登录</button>
+							<button type="button" id="login_btn" class="btn btn-default  logbtn" data-toggle="modal" data-target="#myModal">登录</button>
 						</a>
 					</li>
 					<li class="logined-drop">

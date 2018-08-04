@@ -18,7 +18,7 @@ public class QuestionController {
 	
 	@Resource
 	private IQuestionService questionService;
-
+	
 	@RequestMapping("/showQuestions.do")
 	public String showQuestions(){
 		return "questions";
