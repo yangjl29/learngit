@@ -82,7 +82,7 @@
 
 .summary {
 	float: left;
-	width: 710px;
+	max-width: 710px;
 	height: 100%;
 	padding-left: 15px;
 }
@@ -100,6 +100,4 @@
 	cursor: pointer;
 }
 
-.login_alert{
-	
-}
+

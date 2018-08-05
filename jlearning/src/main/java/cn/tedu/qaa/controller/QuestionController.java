@@ -27,12 +27,10 @@ public class QuestionController {
 	@RequestMapping("/getNewestQuestions.do")
 	@ResponseBody
 	public ResponseResult<List<Question>> getNewestQuestions(){
-		ResponseResult<List<Question>> rr = null;
+		ResponseResult<List<Question>> rr = new ResponseResult<>(1,"查询成功");
 		List<Question> list = questionService.getNewestQuestion();
-		if(list.size()!=0){
-			rr = new ResponseResult<>(1,"查询成功");
-			rr.setData(list);
-		}
+		rr.setData(list);
+		
 		return rr;
 	}
 }
