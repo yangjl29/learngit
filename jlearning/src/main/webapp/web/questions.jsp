@@ -1,11 +1,12 @@
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <!--bootstrap 3.3.7-->
 
 <head>
 	<meta charset="utf-8" />
-	<title></title>
+	<title>最新的问题 - JLearning 金手指</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
@@ -30,7 +31,7 @@
 							<div class="modal-body">
 								<div class="form-group">
 									<label for="username" class="control-label" >用户名或Email</label>
-									<input type="text" id="username" class="form-control" name="username" tabindex="1" required="required" oninput="setCustomValid('')" placeholder="用户名 或 Email"
+									<input type="text" id="username" class="form-control" name="username" tabindex="1" required="required"  placeholder="用户名 或 Email"
 									    autocomplete="off" autofocus="autofocus">
 								</div>
 								<div class="form-group">
@@ -69,6 +70,7 @@
 			</div>
 			<div class="col-sm-4 col-md-3 col-lg-3 text-right topbar-rightdiv">
 				<ul>
+				<c:if test="${user==null}">
 					<li class="regandlog">
 						<a class="reglink userlink" href="${pageContext.request.contextPath}/user/reg.do">
 							<button type="button" class="btn btn-primary  regbtn">注册</button>
@@ -77,6 +79,8 @@
 							<button type="button" id="login_btn" class="btn btn-default  logbtn" data-toggle="modal" data-target="#myModal">登录</button>
 						</a>
 					</li>
+				</c:if>
+				<c:if test="${user!=null}">
 					<li class="logined-drop">
 						<div class="btn-group">
 							<button type="button" class="start-btn btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">开始
@@ -95,9 +99,7 @@
 							</ul>
 						</div>
 					</li>
-					<li>
-
-					</li>
+				</c:if>
 				</ul>
 			</div>
 		</div>
@@ -113,7 +115,7 @@
 					<p>
 						<a class="btn  btn-lg banner-btn" href="../user/showRegister.do" role="button">免费注册</a>
 					</p>
-					<i class="glyphicon glyphicon-menu-up" ></i>
+					<i class="glyphicon glyphicon-menu-up" style="position: absolute;right: 35px;top:20px;cursor: pointer;"></i>
 				</div>
 			</div>
 		</div>
@@ -154,16 +156,8 @@
 			</div>
 		</div>
 	</article>
-	<footer>
-		<div class="container question-page-footer">
-			<div class=" inner-footer">
-				<div class="footer-logo">
-					<img src="../assets/image/logo-73x49.png">
-				</div>
-
-			</div>
-		</div>
-	</footer>
+	
+	<%@ include file="footer.jsp" %>
 	<a href="#" id="backtop" class="btn-meau" title="返回顶部" style="display: flex;">
 		<svg xmlns="http://www.w3.org/2000/svg" width="19" height="12">
 			<path d="M9.314 0l9.313 9.314-2.12 2.121-7.193-7.192-7.193 7.192L0 9.314z" fill="#FFF" fill-rule="evenodd"></path>

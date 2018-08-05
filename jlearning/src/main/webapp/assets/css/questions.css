@@ -8,9 +8,6 @@
 	position: relative;
 }
 
-.login-banner>div {
-	border: 1px solid red;
-}
 
 .login-banner .jumbotron {
 	background-color: inherit;
@@ -41,9 +38,6 @@
 	color: white;
 }
 
-.main-content {
-	border: 1px solid red;
-}
 
 .content-toptab {
 	margin-bottom: 15px;
@@ -51,7 +45,8 @@
 
 .stream-list__item {
 	padding: 10px 0;
-	height: 60px;
+	height: 70px;
+	position:relative;
 	border-bottom: 1px solid gainsboro;
 }
 
@@ -61,13 +56,23 @@
 	border-right: 1px solid gainsboro;
 }
 
-.answers-num-tag {
+.answered_tag {
 	float: left;
 	width: 50px;
 	height: 100%;
 	text-align: center;
 	font-size: 15px;
 	background: #34ce73;
+	color: white;
+}
+
+.unanswered_tag {
+	float: left;
+	width: 50px;
+	height: 100%;
+	text-align: center;
+	font-size: 15px;
+	background: #2c9dcac7;
 	color: white;
 }
 
@@ -88,16 +93,36 @@
 }
 
 .summary>h5 {
-	margin-bottom: 0px;
+	margin: 0px;
+	margin-top:5px;
 }
 .summary>ul span{
 	margin: 10px;
-}
-.jumbotron .glyphicon-menu-up{
+	lyphicon-menu-up{
 	position: absolute;
 	right: 24px;
 	top: 18px;
 	cursor: pointer;
 }
 
+.summary>ul{
+	position: absolute;
+    right: 0;
+    margin-right: 15px;
+}
 
+.jumbotron>i{
+	position: absolute;
+    right: 35px;
+    top: 20px;
+    cursor: pointer;
+}
+.summary>ul{
+	position:absolute;
+	right:0;
+	bottom:0;
+}
+
+.summary>h5{
+	font-size:16px;
+}

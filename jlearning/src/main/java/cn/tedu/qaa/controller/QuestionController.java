@@ -24,11 +24,11 @@ public class QuestionController {
 		return "questions";
 	}
 	
-	@RequestMapping("/getNewestQuestions.do")
+	@RequestMapping("/newest.do")
 	@ResponseBody
 	public ResponseResult<List<Question>> getNewestQuestions(){
 		ResponseResult<List<Question>> rr = new ResponseResult<>(1,"查询成功");
-		List<Question> list = questionService.getNewestQuestion();
+		List<Question> list = null;
 		rr.setData(list);
 		
 		return rr;
