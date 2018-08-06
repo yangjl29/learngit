@@ -14,3 +14,10 @@ $(document).ready(function () {
 	
 	
 });
+
+$(document).ready(function () {
+	
+	$(".glyphicon-menu-up").click(function(){
+		$(".login-banner").slideUp(500);
+	});
+});

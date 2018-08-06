@@ -3,8 +3,21 @@
 		"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 	<mapper namespace="cn.tedu.qaa.mapper.QuestionMapper">
 		
-		<!-- List<Question> selectNewestQuestion(); -->
-		<select id="selectNewestQuestion" resultType="cn.tedu.qaa.bean.Question">
+		<!--void insertQuestion(Question q);  -->
+		<insert id="insertQuestion" parameterType="cn.tedu.qaa.bean.Question">
+			insert into t_question
+			values(
+				#{id},
+				#{uid},
+				#{title},
+				#{content},
+				#{createdTime},
+				#{location}
+			)
+		</insert>
+		
+		<!-- List<Question> selectNewestQuestions(); -->
+		<select id="selectNewestQuestions" resultType="cn.tedu.qaa.bean.Question">
 			select
 				id,
 				uid,

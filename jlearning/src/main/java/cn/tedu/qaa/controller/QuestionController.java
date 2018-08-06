@@ -28,9 +28,26 @@ public class QuestionController {
 	@ResponseBody
 	public ResponseResult<List<Question>> getNewestQuestions(){
 		ResponseResult<List<Question>> rr = new ResponseResult<>(1,"查询成功");
-		List<Question> list = null;
+		List<Question> list = questionService.getNewestQuestions();
 		rr.setData(list);
-		
+		return rr;
+	}
+	
+	@RequestMapping("/hottest.do")
+	@ResponseBody
+	public ResponseResult<List<Question>> getHottestQuestions(){
+		ResponseResult<List<Question>> rr = new ResponseResult<>(1,"查询成功");
+		List<Question> list = questionService.getNewestQuestions();
+		rr.setData(list);
+		return rr;
+	}
+	
+	@RequestMapping("/unanswered.do")
+	@ResponseBody
+	public ResponseResult<List<Question>> getUnAnsweredQuestions(){
+		ResponseResult<List<Question>> rr = new ResponseResult<>(1,"查询成功");
+		List<Question> list = questionService.getNewestQuestions();
+		rr.setData(list);
 		return rr;
 	}
 }

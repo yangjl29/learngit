@@ -15,8 +15,23 @@ public class QuestionService implements IQuestionService {
 	private QuestionMapper questionMapper;
 
 	@Override
-	public List<Question> getNewestQuestion() {
-		return questionMapper.selectNewestQuestion();
+	public List<Question> getNewestQuestions() {
+		return questionMapper.selectNewestQuestions();
+	}
+
+	@Override
+	public List<Question> getHottestQuestions() {
+		return questionMapper.selectHottestQuestions();
+	}
+
+	@Override
+	public List<Question> getUnAnsweredQuestions() {
+		return questionMapper.selectUnAnsweredQuestions();
+	}
+
+	@Override
+	public void addQuestion(Question question) {
+		questionMapper.insertQuestion(question);
 	}
 
 }

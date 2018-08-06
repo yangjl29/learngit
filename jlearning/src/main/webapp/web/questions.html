@@ -11,8 +11,9 @@
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/frame.css" />
 	<script src="../assets/js/frame.js" type="text/javascript" charset="utf-8"></script>
-	<link rel="stylesheet" type="text/css" href="../assets/css/questions.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/questions.css" charset="UTF-8" />
 	<script type="text/javascript" src="../assets/js/questions.js"></script>
+	
 </head>
 
 <body>
@@ -102,7 +103,7 @@
 		</div>
 	</header>
 	<div class="blank_under_header"></div>
-	
+
 	<article>
 		<div class="login-banner hidden-sm hidden-xs ">
 			<div class="container">
@@ -112,7 +113,7 @@
 					<p>
 						<a class="btn  btn-lg banner-btn" href="../user/showRegister.do" role="button">免费注册</a>
 					</p>
-					<i class="glyphicon glyphicon-menu-up" ></i>
+					<i class="glyphicon glyphicon-menu-up"></i>
 				</div>
 			</div>
 		</div>
@@ -135,16 +136,35 @@
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane fade in active" id="date-list">
-						按照日期查询前10条记录
-						
+							按照日期查询前10条记录
+							<section class='stream-list__item'>
+								<div class='qa-rank'>
+									<div class='unanswered_tag'>0
+										<div class='a-state'>回答</div>
+									</div>
+									<div class='views-num-tag hidden-xs'>0
+										<div>浏览</div>
+									</div>
+								</div>
+								<div class='summary'>
+									<h5 style='font-size:16px;'>
+										<a href='#'>python 和 js 变量作用域问题的不理解</a>
+									</h5>
+									<ul style='position:absolute;right:0;bottom:0'>
+										<li>用户名
+											<span>发布时间</span>
+										</li>
+									</ul>
+								</div>
+							</section>
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="comment-list">
-						按照评论数查询前10条记录
-						
+							按照评论数查询前10条记录
+
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="no-answer-list">
-						按照时间查询没有人回答的问题
-						
+							按照时间查询没有人回答的问题
+
 						</div>
 					</div>
 				</div>

@@ -5,8 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	div{
+		text-align: center;
+		margin-top:18%;
+		font-size: 50px;
+		text-shadow: 1px -3px 6px #00e7ff;
+	}
+	
+</style>
+<script type="text/javascript">
+	
+</script>
 </head>
-<body style="font-size: 30px">
-	JLearning
+<body>
+	<div>
+		<a href="user/showLogin.do" style="text-decoration: none" >JLearning</a>
+	</div>
 </body>
 </html>

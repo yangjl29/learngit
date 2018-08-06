@@ -3,6 +3,7 @@ package cn.tedu.qaa.bean;
 import java.io.Serializable;
 import java.util.Date;
 
+
 public class Question implements Serializable {
 
 	private static final long serialVersionUID = -9009445180653194866L;

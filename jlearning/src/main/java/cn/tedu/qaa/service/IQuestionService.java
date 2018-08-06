@@ -6,5 +6,11 @@ import cn.tedu.qaa.bean.Question;
 
 public interface IQuestionService {
 
-	List<Question> getNewestQuestion();
+	List<Question> getNewestQuestions();
+	
+	List<Question> getHottestQuestions();
+	
+	List<Question> getUnAnsweredQuestions();
+	
+	void addQuestion(Question question);
 }
