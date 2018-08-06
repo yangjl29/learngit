@@ -1,0 +1,11 @@
+package cn.tedu.qaa.mapper;
+
+import cn.tedu.qaa.bean.User;
+
+public interface UserMapper {
+	/**
+	 * 插入用户信息
+	 * @param user
+	 */
+	void insertUser(User user);
+}

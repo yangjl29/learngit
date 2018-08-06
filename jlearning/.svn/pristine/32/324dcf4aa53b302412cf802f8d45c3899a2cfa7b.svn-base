@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>欢迎登陆</title>
+<link href="../css/login.css" rel="stylesheet"/>
+<script type="text/javascript" >
+             
+</script>
+</head>
+<body>
+        <div class="login-from">
+           <div class="top-login">
+             <span>
+                 <img alt="" src="images/group.png">
+             </span>
+           </div>
+           <h1>登录</h1>
+          <div class="login">
+                   <form>
+                         <div class="login-ic">
+                            <i></i>
+                            <input type="text" value=" 用户名" placeholder="Username"/>         
+                            <div class="clear"></div>                 
+                         </div>
+                         <div  class="login-ic">
+                         <i class="icon"></i>
+                         <input type="password" value=" 密码" placeholder="Password"/>       
+                         <div class="clear"></div>  
+                         </div>
+                         <div class="log-bon">
+                             <input type="submit" value="确定">
+                         </div>
+                   </form>
+                   <p class="copy">@  2018  xxxxxxxxxxxxx</p>
+          </div>
+        </div>
+</body>
+</html>

@@ -1,4 +1,0 @@
-url=jdbc:mysql://176.128.20.19:3306/qaa?useUnicode=true&characterEncoding=utf8
-username=root
-password=root
-driverClassName=com.mysql.jdbc.Driver
