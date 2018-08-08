@@ -1,7 +1,5 @@
 package test;
 
-import java.util.Date;
-
 import org.junit.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -33,7 +31,7 @@ public class TestQuestion {
 		AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-dao.xml");
 		QuestionMapper qm = ac.getBean("questionMapper",QuestionMapper.class);
 		Question q = new Question();
-		q.setUid(6);
+		q.setUid(2);
 		q.setTitle("这是一个标题");
 		q.setContent("这里是内容");
 		qm.insertQuestion(q);

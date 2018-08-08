@@ -14,4 +14,10 @@ public interface UserMapper {
 	 * @return
 	 */
 	User selectByUsername(String username);
+	/**
+	 * 根据id查找user
+	 * @param id
+	 * @return
+	 */
+	User selectById(Integer id);
 }

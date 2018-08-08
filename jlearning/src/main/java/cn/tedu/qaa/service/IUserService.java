@@ -11,4 +11,6 @@ public interface IUserService {
 	void addUser(User user);
 	
 	User login(String username,String password);
+	
+	User selectById(Integer id);
 }

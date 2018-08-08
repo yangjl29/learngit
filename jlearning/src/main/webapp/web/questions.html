@@ -124,19 +124,79 @@
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs content-toptab" role="tablist">
 						<li role="presentation" class="active">
-							<a href="#date-list" aria-controls="home" role="tab" data-toggle="tab">最新的问题</a>
+							<a href="#date-list" aria-controls="home" role="tab" data-toggle="tab" onclick="getNewest()">最新的问题</a>
 						</li>
 						<li role="presentation">
-							<a href="#comment-list" aria-controls="profile" role="tab" data-toggle="tab">热门问题</a>
+							<a href="#comment-list" aria-controls="profile" role="tab" data-toggle="tab" onclick="getHottest()">热门问题</a>
 						</li>
 						<li role="presentation">
-							<a href="#no-answer-list" aria-controls="messages" role="tab" data-toggle="tab">等待回答</a>
+							<a href="#no-answer-list" aria-controls="messages" role="tab" data-toggle="tab" onclick="getUnAnswered()">等待回答</a>
 						</li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane fade in active" id="date-list">
 							按照日期查询前10条记录
+							<section class='stream-list__item'>
+								<div class='qa-rank'>
+									<div class='unanswered_tag'>0
+										<div class='a-state'>回答</div>
+									</div>
+									<div class='views-num-tag hidden-xs'>0
+										<div>浏览</div>
+									</div>
+								</div>
+								<div class='summary'>
+									<h5 style='font-size:16px;'>
+										<a href='#'>python 和 js 变量作用域问题的不理解</a>
+									</h5>
+									<ul style='position:absolute;right:0;bottom:0'>
+										<li>用户名
+											<span>发布时间</span>
+										</li>
+									</ul>
+								</div>
+							</section>
+							<section class='stream-list__item'>
+								<div class='qa-rank'>
+									<div class='unanswered_tag'>0
+										<div class='a-state'>回答</div>
+									</div>
+									<div class='views-num-tag hidden-xs'>0
+										<div>浏览</div>
+									</div>
+								</div>
+								<div class='summary'>
+									<h5 style='font-size:16px;'>
+										<a href='#'>python 和 js 变量作用域问题的不理解</a>
+									</h5>
+									<ul style='position:absolute;right:0;bottom:0'>
+										<li>用户名
+											<span>发布时间</span>
+										</li>
+									</ul>
+								</div>
+							</section>
+							<section class='stream-list__item'>
+								<div class='qa-rank'>
+									<div class='unanswered_tag'>0
+										<div class='a-state'>回答</div>
+									</div>
+									<div class='views-num-tag hidden-xs'>0
+										<div>浏览</div>
+									</div>
+								</div>
+								<div class='summary'>
+									<h5 style='font-size:16px;'>
+										<a href='#'>python 和 js 变量作用域问题的不理解</a>
+									</h5>
+									<ul style='position:absolute;right:0;bottom:0'>
+										<li>用户名
+											<span>发布时间</span>
+										</li>
+									</ul>
+								</div>
+							</section>
 							<section class='stream-list__item'>
 								<div class='qa-rank'>
 									<div class='unanswered_tag'>0
@@ -169,7 +229,15 @@
 					</div>
 				</div>
 			</div>
-			<div>
+			<div class="col-xs-12 col-md-3 side-content">
+				<div class="">
+					<div class="hidden-md hidden-sm hidden-xs">
+						<img src="../assets/image/20180728.png" width="255px" height="255px">
+					</div>
+					<div style="text-align: center;">
+						<a style="text-align:center; color:#9E9E9E; font-size:12px" data-toggle="modal" data-target="#myModal2">想在上面展示你的广告？</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</article>
@@ -177,7 +245,7 @@
 		<div class="container question-page-footer">
 			<div class=" inner-footer">
 				<div class="footer-logo">
-					<img src="assets/image/logo-73x49.png">
+					<img src="../assets/image/logo-73x49.png">
 				</div>
 
 			</div>
@@ -188,6 +256,20 @@
 			<path d="M9.314 0l9.313 9.314-2.12 2.121-7.193-7.192-7.193 7.192L0 9.314z" fill="#FFF" fill-rule="evenodd"></path>
 		</svg>
 	</a>
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" >
+				<div class="modal-content2" >
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						
+					</div>
+					<p>请联系管理员</p>
+					<p>admin@jlearning.com</p>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
 </body>
 
 </html>

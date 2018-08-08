@@ -1,6 +1,7 @@
 package cn.tedu.qaa.bean;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 
@@ -108,6 +109,5 @@ public class Question implements Serializable {
 		return "Question [id=" + id + ", uid=" + uid + ", title=" + title + ", content=" + content + ", createdTime="
 				+ createdTime + ", location=" + location + "]";
 	}
-	
 	
 }

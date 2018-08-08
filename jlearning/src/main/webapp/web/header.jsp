@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
 		<div class="modal fade" id="myModal"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -53,7 +54,7 @@
 				<ul>
 				<c:if test="${user==null}">
 					<li class="regandlog">
-						<a class="reglink userlink" href="${pageContext.request.contextPath}/user/reg.do">
+						<a class="reglink userlink" href="${pageContext.request.contextPath}/user/showRegister.do">
 							<button type="button" class="btn btn-primary  regbtn">注册</button>
 						</a>
 						<a class="loginlink userlink">
@@ -86,15 +87,5 @@
 		</div>
 	</header>
 	<div class="blank_under_header"></div>
-	<div class="login-banner hidden-sm hidden-xs ">
-			<div class="container">
-				<div class="jumbotron">
-					<h1 class="title">在JLearning金手指，问题不再困扰</h1>
-					<p class="banner-slogan">加入我们，你可以认识更多的好友，共同探讨问题</p>
-					<p>
-						<a class="btn  btn-lg banner-btn" href="../user/showRegister.do" role="button">免费注册</a>
-					</p>
-					<i class="glyphicon glyphicon-menu-up" ></i>
-				</div>
-			</div>
-		</div>
+	
+	

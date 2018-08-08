@@ -37,4 +37,9 @@ public class UserService implements IUserService {
 		}
 	}
 
+	@Override
+	public User selectById(Integer id) {
+		return userMapper.selectById(id);
+	}
+
 }

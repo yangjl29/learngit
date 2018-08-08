@@ -31,6 +31,36 @@
 			limit 0,10 
 		</select>
 		
+		<!-- List<Question> selectHottestQuestions(); -->
+		<select id="selectHottestQuestions" resultType="cn.tedu.qaa.bean.Question">
+			select
+				id,
+				uid,
+				title,
+				content,
+				created_time createdTime
+			from
+				t_question
+			order by 
+				title
+			limit 0,10 
+		</select>
+		
+		<!-- List<Question> selectUnAnsweredQuestions(); -->
+		<select id="selectUnAnsweredQuestions" resultType="cn.tedu.qaa.bean.Question">
+			select
+				id,
+				uid,
+				title,
+				content,
+				created_time createdTime
+			from
+				t_question
+			order by 
+				id
+			limit 0,10 
+		</select>
+		
 	</mapper>
 	
 	

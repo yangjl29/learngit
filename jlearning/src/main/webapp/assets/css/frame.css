@@ -239,3 +239,45 @@ a#backtop:hover{
 	position: absolute;
 	top: 31px;
 }
+
+.jumbotron>i{
+	position: absolute;
+    right: 35px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.banner-btn:hover {
+	color: white;
+}
+
+.banner-btn {
+	display: grid;
+	box-shadow: 5px 7px 10px grey;
+	color: white;
+	background-color: rgba(0, 0, 0, .25);
+}
+.login-banner>.container>.jumbotron>.title {
+	font-size: 41px;
+}
+
+
+
+.banner-slogan {
+	margin-top: 30px;
+}
+
+
+.login-banner {
+	background-color: #44de7b;
+	position: relative;
+}
+
+
+.login-banner .jumbotron {
+	background-color: inherit;
+	height: 200px;
+	margin-bottom: 40px;
+}
+
+

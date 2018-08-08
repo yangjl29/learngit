@@ -10,13 +10,11 @@
 		text-align: center;
 		margin-top:18%;
 		font-size: 50px;
-		text-shadow: 1px -3px 6px #00e7ff;
+		/* text-shadow: 1px -3px 6px #00e7ff; */
 	}
 	
 </style>
-<script type="text/javascript">
-	
-</script>
+
 </head>
 <body>
 	<div>

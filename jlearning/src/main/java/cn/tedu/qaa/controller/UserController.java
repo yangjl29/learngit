@@ -23,6 +23,11 @@ public class UserController {
 		return "login";
 	}
 	
+	@RequestMapping("/showRegister.do")
+	public String showRegister(){
+		return "register";
+	}
+	
 	@RequestMapping("/login.do")
 	@ResponseBody
 	public ResponseResult<Void> login(String username,String password,HttpSession session){
@@ -37,4 +42,6 @@ public class UserController {
 		}
 		return rr;
 	}
+	
+	
 }

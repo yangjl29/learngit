@@ -21,7 +21,20 @@
 <body>
 	<%@ include file="header.jsp" %>
 	<article>
-		
+		<c:if test="${user==null}">
+			<div class="login-banner hidden-sm hidden-xs ">
+				<div class="container">
+					<div class="jumbotron">
+						<h1 class="title">在JLearning金手指，问题不再困扰</h1>
+						<p class="banner-slogan">加入我们，你可以认识更多的好友，共同探讨问题</p>
+						<p>
+							<a class="btn  btn-lg banner-btn" href="../user/showRegister.do" role="button">免费注册</a>
+						</p>
+						<i class="glyphicon glyphicon-menu-up" ></i>
+					</div>
+				</div>
+			</div>
+		</c:if>
 		<div class="container question-page-artical">
 			<div class="col-xs-12 col-md-9 main-content">
 				<div>
@@ -29,31 +42,51 @@
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs content-toptab" role="tablist">
 						<li role="presentation" class="active">
-							<a href="#date-list" aria-controls="home" role="tab" data-toggle="tab" onclick="getNewest()">最新的问题</a>
+							<a href="#date-list" aria-controls="home" role="tab"  onclick="getNewest()">最新的问题</a>
 						</li>
 						<li role="presentation">
-							<a href="#comment-list" aria-controls="profile" role="tab" data-toggle="tab" >热门问题</a>
+							<a href="../questions/showHottest.do" aria-controls="profile" role="tab"  >热门问题</a>
 						</li>
 						<li role="presentation">
-							<a href="#no-answer-list" aria-controls="messages" role="tab" data-toggle="tab">等待回答</a>
+							<a href="../questions/showUnAnswered.do" aria-controls="messages" role="tab"  >等待回答</a>
 						</li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content">
-						<div role="tabpanel" class="tab-pane fade in active" id="date-list">
+						<div role="tabpanel" class="tab-pane  active" id="date-list">
 						按照日期查询前10条记录
-						
-						</div>
-						<div role="tabpanel" class="tab-pane fade" id="comment-list">
-						按照评论数查询前10条记录
-						
-						</div>
-						<div role="tabpanel" class="tab-pane fade" id="no-answer-list">
-						按照时间查询没有人回答的问题
-						
+							<c:forEach items="${newList}" var="n" >
+								<section class="stream-list__item">
+									<div class="qa-rank">
+										<div class="unanswered_tag">0
+											"<div class="a-state">回答</div>
+										</div>
+										<div class="views-num-tag hidden-xs">0
+											<div>浏览</div>
+										</div>
+									</div>
+									<div class="summary">
+										<h5>
+											<a href="#">${n.title}</a>
+										</h5>
+										<ul>
+											<li>
+											<c:forEach items="userList" var="u">
+												<c:if test="${u.id==n.uid }">
+													${u.username}
+												</c:if>
+											</c:forEach>
+											<span>${n.createdTime}</span></li>
+										</ul>
+									</div>
+								</section>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="col-xs-12 col-md-3 side-content">
+				
 			</div>
 			<div>
 			</div>
@@ -62,48 +95,4 @@
 	
 	<%@ include file="footer.jsp" %>
 </body>
-<script type="text/javascript">
-
-$(function(){
-	getNewest();
-})
-function getNewest(){
-	$.ajax({
-		url:"../questions/newest.do",
-		data:"",
-		type:"get",
-		dataType:"json",
-		success:function(obj){
-			if(obj.state==1){
-				$("#date-list").html("");
-				for(i=0; i<obj.data.length; i++){
-					
-					/* $("#date-list").append("<section class='stream-list__item'><div class='qa-rank'><div class='unanswered_tag'>0<div class='a-state'>回答</div></div><div class='views-num-tag hidden-xs'>0<div>浏览</div></div></div><div class='summary'><h5 style='font-size:16px;'><a href='#'>python 和 js 变量作用域问题的不理解</a></h5><ul style='position:absolute;right:0;bottom:0'><li>用户名<span>发布时间</span></li></ul></div></section>"); */
-					
-					var str = "<section class='stream-list__item'>" +
-								"<div class='qa-rank'>" +
-									"<div class='unanswered_tag'>0" +
-										"<div class='a-state'>回答</div>" +
-									"</div>"+
-									"<div class='views-num-tag hidden-xs'>0" +
-										"<div>浏览</div>" +
-									"</div>" +
-								"</div>"+
-								"<div class='summary'>" +
-									"<h5>" +
-										"<a href='#'>"+obj.data[i].title+"</a>" +
-									"</h5>" +
-									"<ul>" +
-										"<li>用户名<span>"+obj.data[i].createdTime+"</span></li>" +
-									"</ul>" +
-								"</div>" +
-							"</section>";
-					
-					$("#date-list").append(str);
-				}
-			}
-		}
-	});
-}
-</script>
 </html>
