@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="zh">
 <!--bootstrap 3.3.7-->
@@ -45,22 +46,28 @@
 							<a href="../questions/showQuestions.do" aria-controls="home" role="tab" >最新的问题</a>
 						</li>
 						<li role="presentation"  class="active">
-							<a href="../questions/showHottest.do" aria-controls="profile" role="tab" >热门问题</a>
+							<a href="../questions/hottest.do" aria-controls="profile" role="tab" >热门问题</a>
 						</li>
 						<li role="presentation">
-							<a href="../questions/showUnAnswered.do" aria-controls="messages" role="tab" >等待回答</a>
+							<a href="../questions/unanswered.do" aria-controls="messages" role="tab" >等待回答</a>
 						</li>
 					</ul>
 					<!-- Tab panes -->
 					<div class="tab-content">
 						
-						<div role="tabpanel" class="tab-pane fade in active" id="comment-list">
+						<div role="tabpanel" class="tab-pane fade in active" id="data-list">
 						按照评论数查询前10条记录
 							<c:forEach items="${hotList}" var="n" >
 								<section class="stream-list__item">
 									<div class="qa-rank">
-										<div class="unanswered_tag">0
-											"<div class="a-state">回答</div>
+										<div class="unanswered_tag">
+										<c:if test="${n.replyCount==null}">
+												0
+											</c:if>
+											<c:if test="${n.replyCount!=null}">
+												${n.replyCount }
+											</c:if>
+											<div class="a-state">回答</div>
 										</div>
 										<div class="views-num-tag hidden-xs">0
 											<div>浏览</div>
@@ -71,7 +78,11 @@
 											<a href="#">${n.title}</a>
 										</h5>
 										<ul>
-											<li>${n.id}<span>${n.createdTime}</span></li>
+											<li>${n.username}
+											<span>
+											<fmt:formatDate value="${n.createdTime}" type="both" ></fmt:formatDate>
+											</span>
+											</li>
 										</ul>
 									</div>
 								</section>

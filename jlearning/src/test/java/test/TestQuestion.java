@@ -10,21 +10,6 @@ import cn.tedu.qaa.service.IQuestionService;
 
 public class TestQuestion {
 
-	@Test
-	public void testSelectNewestQ(){
-		AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-dao.xml");
-		QuestionMapper qm = ac.getBean("questionMapper",QuestionMapper.class);
-		System.out.println(qm.selectNewestQuestions());
-		ac.close();
-	}
-	
-	@Test
-	public void testGetNewestQ(){
-		AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-dao.xml","application-service.xml");
-		IQuestionService qs = ac.getBean("questionService",IQuestionService.class);
-		System.out.println(qs.getNewestQuestions());
-		ac.close();
-	}
 	
 	@Test
 	public void testInsertQ(){
@@ -34,8 +19,24 @@ public class TestQuestion {
 		q.setUid(2);
 		q.setTitle("这是一个标题");
 		q.setContent("这里是内容");
-		qm.insertQuestion(q);
 		
 		ac.close();
 	}
+	
+	@Test
+	public void testSelectById(){
+		AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-dao.xml");
+		QuestionMapper qm = ac.getBean("questionMapper",QuestionMapper.class);
+		System.out.println(qm.selectHottestTags());
+		ac.close();
+	}
+	
+	@Test
+	public void test(){
+		AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-dao.xml","application-service.xml");
+		IQuestionService qs = ac.getBean("questionService",IQuestionService.class);
+		System.out.println(qs.getHottestTags());
+		ac.close();
+	}
+	
 }

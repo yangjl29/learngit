@@ -1,10 +1,14 @@
 package cn.tedu.qaa.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
+import org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.tedu.qaa.bean.ResponseResult;
@@ -17,31 +21,84 @@ public class UserController {
 
 	@Resource
 	private IUserService userService;
-	
-	@RequestMapping("/showLogin.do")
-	public String showLogin(){
-		return "login";
-	}
-	
+	//显示注册页面
 	@RequestMapping("/showRegister.do")
 	public String showRegister(){
 		return "register";
 	}
 	
+	
+	
+	//显示登录页面
+	@RequestMapping("/showLogin.do")
+	public String showLogin(){
+		return "login";
+	}
+	   
+	
+	
+	//异步提交注册
+	@RequestMapping("/register.do")
+	@ResponseBody
+	public ResponseResult<Void> register(String username,String password,String email){
+		 ResponseResult<Void> rr = null;
+		 try{
+			 User user = new User();
+			 user.setUsername(username);
+			 user.setPassword(password);
+			 user.setEmail(email);
+			 userService.addUser(user);    
+			 rr = new ResponseResult<Void>(1,"添加成功！");
+		 }catch(RuntimeException e){
+			 rr = new ResponseResult<Void>(0,e.getMessage());
+		 }
+		return rr;
+		
+	}
+    
+	
+	//异步提交登录
 	@RequestMapping("/login.do")
 	@ResponseBody
 	public ResponseResult<Void> login(String username,String password,HttpSession session){
 		ResponseResult<Void> rr = null;
 		try {
 			User user = userService.login(username, password);
-			rr = new ResponseResult<>(1,"登录成功");
+			rr = new ResponseResult<Void>(1,"登录成功");
 			
 			session.setAttribute("user", user);
-		} catch (Exception e) {
-			rr = new ResponseResult<>(0,"登录失败");
+		} catch (RuntimeException e) {
+			rr = new ResponseResult<Void>(0,e.getMessage());
 		}
 		return rr;
 	}
 	
 	
+	
+	//实现异步验证，用户名是否存在
+	@RequestMapping("/checkUsername.do")
+	@ResponseBody
+	public ResponseResult<Void> checkUsername(
+			String username){
+		//1.声明ResponseResult<Void>对象
+		ResponseResult<Void> rr = null;
+		//2.调用业务层方法
+		boolean b = 
+		userService.checkUsername(username);
+		//3.如果b为true；定义状态码 ： 0
+		//   和状态信息:用户名不可以使用
+		if(b){
+			rr = new ResponseResult<Void>(0,
+				"用户名不可以使用");
+		}else{
+		//4.如果b为false；定义状态码 ：1
+		//   和状态信息:用户名可以使用
+			rr = new ResponseResult<Void>(1,
+				"用户名可以使用");
+		}
+		return rr;
+	}
+	
+	
+	    
 }

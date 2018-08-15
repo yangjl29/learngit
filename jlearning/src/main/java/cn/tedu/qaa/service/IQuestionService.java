@@ -3,14 +3,15 @@ package cn.tedu.qaa.service;
 import java.util.List;
 
 import cn.tedu.qaa.bean.Question;
+import cn.tedu.qaa.vo.QuestionVo;
 
 public interface IQuestionService {
 
-	List<Question> getNewestQuestions();
+	List<QuestionVo> getNewestTags();
 	
-	List<Question> getHottestQuestions();
+	List<QuestionVo> getHottestTags();
 	
-	List<Question> getUnAnsweredQuestions();
+	List<QuestionVo> getUnAnsweredTags();
 	
-	void addQuestion(Question question);
+	List<QuestionVo> getAll();
 }

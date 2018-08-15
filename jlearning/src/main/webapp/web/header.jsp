@@ -47,7 +47,7 @@
 					<button class="btn btn-link">
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
-					<input type="text" name="q" class="form-control" autocomplete="off" />
+					<input type="text" name="q" class="form-control" id="search-input" autocomplete="off" />
 				</form>
 			</div>
 			<div class="col-sm-4 col-md-3 col-lg-3 text-right topbar-rightdiv">

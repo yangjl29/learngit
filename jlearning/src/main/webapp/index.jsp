@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>JLearning 金手指</title>
 <style type="text/css">
 	div{
 		text-align: center;
@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div>
-		<a href="user/showLogin.do" style="text-decoration: none" >JLearning</a>
+		<a href="user/showRegister.do" style="text-decoration: none" >JLearning</a>
 	</div>
 </body>
 </html>

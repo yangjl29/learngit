@@ -1,23 +1,19 @@
-$(document).ready(function () {
-	var under_hheight = $(".blank_under_header").offset().top;
-	$(window).scroll(function(){
-		var this_scrollTop=$(this).scrollTop();
-		if(this_scrollTop>under_hheight){
-			$("#backtop").show();
-		}
-		else{
-			$("#backtop").hide();
-		}
-	});
-	
-	
-	
-	
-});
 
+
+//注册横条收起
 $(document).ready(function () {
 	
 	$(".glyphicon-menu-up").click(function(){
 		$(".login-banner").slideUp(500);
+	});
+});
+
+//搜索框点击变化
+$(function(){
+	$("#search-input").focus(function(){
+		$(".header-search").css("width","500px");
+	});
+	$("#search-input").blur(function(){
+		$(".header-search").css("width","196px");
 	});
 });

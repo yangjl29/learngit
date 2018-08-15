@@ -3,27 +3,25 @@ package cn.tedu.qaa.mapper;
 import java.util.List;
 
 import cn.tedu.qaa.bean.Question;
+import cn.tedu.qaa.vo.QuestionVo;
 
 public interface QuestionMapper {
 
 	/**
-	 * 查询最新的问题
+	 * 查询时间降序的所有问题
 	 * @return
 	 */
-	List<Question> selectNewestQuestions();
+	List<QuestionVo> selectNewestTags();
 	/**
-	 * 查询最热门问题
+	 * 查询回复数降序的所有问题
 	 * @return
 	 */
-	List<Question> selectHottestQuestions();
+	List<QuestionVo> selectHottestTags();
 	/**
-	 * 查询未回答问题
+	 * 查询时间降序的所有未回答问题
 	 * @return
 	 */
-	List<Question> selectUnAnsweredQuestions();
-	/**
-	 * 插入问题信息
-	 * @param question
-	 */
-	void insertQuestion(Question question);
+	List<QuestionVo> selectUnAnsweredTags();
+	
+	List<QuestionVo> selectAll();
 }

@@ -11,16 +11,20 @@ import cn.tedu.qaa.service.ex.UserNotFoundException;
 @Service
 public class UserService implements IUserService {
 
-	@Resource
-	private UserMapper userMapper;
+	@Resource 
+	private UserMapper userMapper; //持久层的对象
+	
+	
 	
 	@Override
 	public void addUser(User user) {
 		userMapper.insertUser(user);
 	}
 
+	
+	
 	@Override
-	public User login(String username, String password) {
+	public User login(String username, String password){
 		
 		User user = userMapper.selectByUsername(username);
 		
@@ -37,9 +41,22 @@ public class UserService implements IUserService {
 		}
 	}
 
+	
+	
 	@Override
 	public User selectById(Integer id) {
-		return userMapper.selectById(id);
+		
+		return userMapper.selectUserById(id);
 	}
 
+
+
+	@Override
+	public boolean checkUsername(String username) {
+	
+		return userMapper.selectByUsername(username)!=null;
+	}
+
+	
+	
 }

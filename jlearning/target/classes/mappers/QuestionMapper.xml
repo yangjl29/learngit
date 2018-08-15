@@ -2,65 +2,98 @@
 	<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
 		"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 	<mapper namespace="cn.tedu.qaa.mapper.QuestionMapper">
-		
-		<!--void insertQuestion(Question q);  -->
-		<insert id="insertQuestion" parameterType="cn.tedu.qaa.bean.Question">
-			insert into t_question
-			values(
-				#{id},
-				#{uid},
-				#{title},
-				#{content},
-				#{createdTime},
-				#{location}
-			)
-		</insert>
-		
-		<!-- List<Question> selectNewestQuestions(); -->
-		<select id="selectNewestQuestions" resultType="cn.tedu.qaa.bean.Question">
+		<!-- 查询时间降序的前10个问题 -->
+		<!-- List<QuestionVo> selectNewestTag(Integer id); -->
+		<select id="selectNewestTags" resultType="cn.tedu.qaa.vo.QuestionVo">
 			select
-				id,
-				uid,
-				title,
-				content,
-				created_time createdTime
+				q.id,
+				q.uid,
+				u.username,
+				q.title,
+				q.created_time createdTime,
+				r.c replyCount
 			from
-				t_question
+				t_question q 
+			left join
+				t_user u
+			on
+				q.uid=u.id
+			left join
+				(select qid,count(*) c from t_reply group by qid) r
+			on
+				r.qid=q.id
 			order by 
-				created_time desc
-			limit 0,10 
+				q.created_time desc
+			limit 0,10
 		</select>
 		
-		<!-- List<Question> selectHottestQuestions(); -->
-		<select id="selectHottestQuestions" resultType="cn.tedu.qaa.bean.Question">
+		<!-- List<QuestionVo> selectHottestTags(); -->
+		<select id="selectHottestTags" resultType="cn.tedu.qaa.vo.QuestionVo">
 			select
-				id,
-				uid,
-				title,
-				content,
-				created_time createdTime
+				q.id,
+				q.uid,
+				u.username,
+				q.title,
+				q.created_time createdTime,
+				r.c replyCount
 			from
-				t_question
+				t_question q 
+			left join
+				t_user u
+			on
+				q.uid=u.id
+			left join
+				(select qid,count(*) c from t_reply group by qid) r
+			on
+				r.qid=q.id
 			order by 
-				title
-			limit 0,10 
+				r.c desc
+			limit 0,10
 		</select>
 		
-		<!-- List<Question> selectUnAnsweredQuestions(); -->
-		<select id="selectUnAnsweredQuestions" resultType="cn.tedu.qaa.bean.Question">
+		<!-- List<QuestionVo> selectUnAnsweredTags(); -->
+		<select id="selectUnAnsweredTags" resultType="cn.tedu.qaa.vo.QuestionVo">
 			select
-				id,
-				uid,
-				title,
-				content,
-				created_time createdTime
+				q.id,
+				q.uid,
+				u.username,
+				q.title,
+				q.created_time createdTime,
+				r.c replyCount
 			from
-				t_question
+				t_question q 
+			left join
+				t_user u
+			on
+				q.uid=u.id
+			left join
+				(select qid,count(*) c from t_reply group by qid) r
+			on
+				r.qid=q.id
+			where
+				r.c is null
 			order by 
-				id
-			limit 0,10 
+				q.created_time desc
+			limit 0,10
 		</select>
 		
+		<!-- List<Question> selectAll(); -->
+		<select id="selectAll" resultType="cn.tedu.qaa.vo.QuestionVo">
+			select
+				q.id,
+				u.username,
+				q.title,
+				q.created_time createdTime
+			from
+				t_question q 
+			left join
+				t_user u
+			on
+				q.uid=u.id
+			order by
+				q.created_time desc
+			limit 0,10
+		</select>
 	</mapper>
 	
 	

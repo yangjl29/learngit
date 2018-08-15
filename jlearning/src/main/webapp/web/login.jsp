@@ -1,102 +1,60 @@
-<%@ page contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<!DOCTYPE html>
 <html>
+
 <head>
-<title>Jlearning</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Trendy Tab Login Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
-<script src="js/jquery.min.js"></script>
-<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
-<!-- //js -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/login.css"/>
+	<title>欢迎来到Jlearning</title>
 </head>
-<body>
-	<!-- main -->
-	<div class="main">
-		<h1>欢迎登陆/注册</h1>
-		<div class="login-form">
-			<div class="sap_tabs w3ls-tabs">
-				<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-					<ul class="resp-tabs-list">
-						<!--登录-->
-						<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>登录</span></li> 
-						<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><label>/</label><span>注册</span></li>
-					</ul>	
-					<div class="clear"> </div>
-					<div class="resp-tabs-container">
-						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-							<div class="login-agileits-top"> 
-								<form action="#" method="post">
-									<p>用户名</p>
-									<input type="text" name="User Name" required="" placeholder="Username"/>
-									<p>密码</p>
-									<input type="password" name="Password" required="" placeholder="Password"/>	 
-									<input type="checkbox" id="brand" value="">
-									<label for="brand"><span></span> 记住密码&nbsp;?</label> 
-									<input type="submit" value="确定">
-								</form>  
-							</div>
-							<div class="login-agileits-bottom"> 
-								<p><a href="#">忘记密码&nbsp;?</a></p>
-							</div> 
-						</div> 
-						
 
-						
-						<!--注册-->
-						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
-							<div class="login-agileits-top sign-up"> 
-								<form action="#" method="post">
-									<p>用户名 </p>
-									<input type="text" name="User Name"  required=""placeholder="Username"/>
+<body>
+	<div class="login-page">
+		<div>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">欢迎登录</h4>
+					</div>
+					<form action="${pageContext.request.contextPath}/user/login.do" method="post">
+						<div class="login-wrap">
+							<div class="modal-body">
+								<div class="form-group">
+									<label for="username" class="control-label">用户名</label>
+									<input type="text" class="form-control" name="username" tabindex="1" required="required" oninput="setCustomValid('')" placeholder="请输入用户名"
+										autocomplete="off">
+										<span class="msg-error " id="unamespan">用户名长度为6~9位</span>
+								</div>
+								<div class="form-group">
+									<label class="control-label">密码</label>
+									<span class="msg-default hidden" id="passwordspan">密码长度为6~9位</span>
 									
-									<p>密码</p>
-									<input type="password" name="Password"  required=""placeholder="Password"/>	
-									<input type="checkbox" id="brand1" value="">
-									<p>邮箱号 </p>
-									<input type="text" name=Email"  required=""placeholder="Email"/>
-									<label for="brand1"><span></span>接受条款的使用</label> 
-									<input type="submit" value="确定">
-								</form>  
+									<input type="password" class="form-control" name="password" tabindex="2" required="required" placeholder="请输入密码">
+								</div>
+							</div>
+							
+							
+								<p class="pull-right">
+									<a href="#" tabindex="4">忘记密码</a>
+								</p>
+
+							<div class="modal-footer">
+								<button type="submit" class="flogbtn btn btn-success" tabindex="3">登录</button>
+							     <span><a href="../user/showRegister.do">没有账号？立即注册</a></span>
 							</div>
 						</div>
-					</div>							
-				</div>	 
-			</div> 
-			
-			
-			<!-- ResponsiveTabs js -->
-			<script type="text/javascript">
-				$(document).ready(function () {
-					$('#horizontalTab').easyResponsiveTabs({
-						type: 'default',           
-						width: 'auto', 
-						fit: true 
-					});
-				});
-			</script>
-	
-		</div>	
-	</div>	
-
-	<div class="copyright">
-		<p> @ 2018 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-		<a href="#" target="_blank">jlearning</a></p>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
-	 
+	
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-

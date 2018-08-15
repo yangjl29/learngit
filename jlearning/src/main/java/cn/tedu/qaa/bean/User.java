@@ -1,11 +1,12 @@
 package cn.tedu.qaa.bean;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class User implements Serializable {
 
-	/**
+   /**
 	 * 
 	 */
 	private static final long serialVersionUID = 2153683156046695068L;
@@ -20,6 +21,7 @@ public class User implements Serializable {
 	private Date createdTime;
 	private String modifiedUser;
 	private Date modifiedTime;
+	
 	public Integer getId() {
 		return id;
 	}

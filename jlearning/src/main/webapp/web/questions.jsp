@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="zh">
 <!--bootstrap 3.3.7-->
@@ -45,10 +46,10 @@
 							<a href="#date-list" aria-controls="home" role="tab"  onclick="getNewest()">最新的问题</a>
 						</li>
 						<li role="presentation">
-							<a href="../questions/showHottest.do" aria-controls="profile" role="tab"  >热门问题</a>
+							<a href="../questions/hottest.do" aria-controls="profile" role="tab"  >热门问题</a>
 						</li>
 						<li role="presentation">
-							<a href="../questions/showUnAnswered.do" aria-controls="messages" role="tab"  >等待回答</a>
+							<a href="../questions/unanswered.do" aria-controls="messages" role="tab"  >等待回答</a>
 						</li>
 					</ul>
 					<!-- Tab panes -->
@@ -58,8 +59,14 @@
 							<c:forEach items="${newList}" var="n" >
 								<section class="stream-list__item">
 									<div class="qa-rank">
-										<div class="unanswered_tag">0
-											"<div class="a-state">回答</div>
+										<div class="unanswered_tag">
+											<c:if test="${n.replyCount==null}">
+												0
+											</c:if>
+											<c:if test="${n.replyCount!=null}">
+												${n.replyCount }
+											</c:if>
+											<div class="a-state">回答</div>
 										</div>
 										<div class="views-num-tag hidden-xs">0
 											<div>浏览</div>
@@ -71,12 +78,13 @@
 										</h5>
 										<ul>
 											<li>
-											<c:forEach items="userList" var="u">
-												<c:if test="${u.id==n.uid }">
-													${u.username}
-												</c:if>
-											</c:forEach>
-											<span>${n.createdTime}</span></li>
+												<div class="ss">
+												${n.username}
+												</div>
+												<span>
+												<fmt:formatDate value="${n.createdTime}" type="both" ></fmt:formatDate>
+												</span>
+											</li>
 										</ul>
 									</div>
 								</section>
@@ -85,7 +93,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-md-3 side-content">
+			<div class="hidden-md hidden-sm hidden-xs col-xs-12 col-md-3 side-content">
 				
 			</div>
 			<div>

@@ -9,7 +9,6 @@
 		<script src="../assets/js/frame.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../assets/css/frame.css"/>
-		<link rel="stylesheet" type="text/css" href="../assets/css/questions.css"/>
 		<link rel="stylesheet" type="text/css" href="../assets/css/search.css"/>
 	</head>
 	<body>
@@ -60,7 +59,7 @@
 							<button class="btn btn-link">
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
-							<input type="text" name="q" class="form-control" autocomplete="off" />
+							<input type="text" name="q" class="form-control" id="search-input" autocomplete="off" />
 						</form>
 					</div>
 					<div class="col-sm-4 col-md-3 col-lg-3 text-right topbar-rightdiv">
@@ -101,12 +100,69 @@
 			</header>
 			<div class="blank_under_header"></div>
 			
-		<div class="container">
-			<div class="">
-				<div class="search_head">
-					搜索
+		<article>
+			<div class="login-banner hidden-sm hidden-xs ">
+				<div class="container">
+					<div class="jumbotron">
+						<h1 class="title">在JLearning金手指，问题不再困扰</h1>
+						<p class="banner-slogan">加入我们，你可以认识更多的好友，共同探讨问题</p>
+						<p>
+							<a class="btn  btn-lg banner-btn" href="../user/showRegister.do" role="button">免费注册</a>
+						</p>
+						<i class="glyphicon glyphicon-menu-up"></i>
+					</div>
 				</div>
 			</div>
-		</div>
+			<div class="container question-page-artical">
+				<div class="search-head">
+					搜索结果
+				</div>
+				<div class="result-num">
+					搜索到？个结果
+				</div>
+				<div class="search-result">
+					<div class="result-box">
+						<div class="result-title">
+							这是标题
+						</div>
+						<div class="result-content">
+							这是内容
+						</div>
+						<div class="qdate">2018年8月14日</div>
+					</div>
+					
+					
+				</div>
+				<div class="page-jump-div">
+					<ul class="page-jump">
+						<li>
+							<a href="#"><button type="button">&lt</button></a>
+						</li>
+						<li>
+							<button type="button">1</button>
+						</li>
+						<li>
+							<a href="#"><button type="button">&gt</button></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</article>
+		<footer>
+			<div class="container question-page-footer">
+				<div class=" inner-footer">
+					<div class="footer-logo">
+						<img src="../assets/image/logo-73x49.png">
+					</div>
+	
+				</div>
+			</div>
+		</footer>
+		<a href="#" id="backtop" class="btn-meau" title="返回顶部" style="display: flex;">
+			<svg xmlns="http://www.w3.org/2000/svg" width="19" height="12">
+				<path d="M9.314 0l9.313 9.314-2.12 2.121-7.193-7.192-7.193 7.192L0 9.314z"
+					fill="#FFF" fill-rule="evenodd"></path>
+			</svg>
+		</a>
 	</body>
 </html>

@@ -3,7 +3,9 @@
 
 /*<!--bootstrap 3.3.7--> */
 
-
+.question-page-artical{
+	background: white;
+}
 
 .content-toptab {
 	margin-bottom: 15px;
@@ -20,6 +22,7 @@
 	float: left;
 	margin-left: 10px;
 	border-right: 1px solid gainsboro;
+	height:42px;
 }
 
 .answered_tag {
@@ -52,23 +55,33 @@
 }
 
 .summary {
-	float: left;
 	max-width: 710px;
 	height: 100%;
 	padding-left: 15px;
+	width: 100%;
 }
 
 .summary>h5 {
 	margin: 0px;
 	margin-top:5px;
-	font-size:16px;
+	font-size:15px;
+	max-width: 695px;
+  overflow: hidden;
+	float: left;
+	margin-left: 15px;
+	height: 16px;
 }
+
 .summary>ul span{
 	margin: 10px;
-	
 }
 
-
+.ss{
+	max-width: 70px;
+	height: 16px;
+	overflow: hidden;
+	float: left;
+}
 
 
 .summary>ul{
@@ -76,6 +89,7 @@
 	right:0;
 	bottom:0;
 	margin-right: 15px;
+	float: right;
 }
 
 
@@ -92,4 +106,18 @@
     margin-top: 190px;
 		text-align: center;
 		border-radius: 10px;
+}
+.today{
+	height: 220px;
+}
+.this-month{
+	    height: 100px;
+    font-size: 49px;
+    text-align: center;
+    line-height: 100px;
+		border-bottom: 1px solid gray;
+}
+.this-day{
+	    font-size: 65px;
+    text-align: center;
 }
