@@ -26,4 +26,14 @@ public interface IUserService {
 	 */
 	boolean checkUsername(String username);
 	
+	
+	/**
+	 * 验证邮箱是否存在
+	 * @param email
+	 * @return：如果存在，返回true；
+	 * 			如果不存在，返回false
+	 */
+	boolean checkEmail(String email);
+	
+	
 }

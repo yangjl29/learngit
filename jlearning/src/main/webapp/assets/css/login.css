@@ -22,6 +22,7 @@ body{
 .modal-content {
 	width: 84%;
 	margin: 0 auto;
+    margin-top: -65px;
 }
 
 .modal-dialog {
@@ -62,4 +63,3 @@ body{
 	color: white;
 	padding: 0 5px;	
 }
-.pull-right 

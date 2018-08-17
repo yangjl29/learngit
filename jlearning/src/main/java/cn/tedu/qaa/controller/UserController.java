@@ -17,7 +17,7 @@ import cn.tedu.qaa.service.IUserService;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController{
 
 	@Resource
 	private IUserService userService;
@@ -29,18 +29,21 @@ public class UserController {
 	
 	
 	
+	
 	//显示登录页面
 	@RequestMapping("/showLogin.do")
 	public String showLogin(){
 		return "login";
 	}
 	   
-	
-	
+   
 	//异步提交注册
 	@RequestMapping("/register.do")
 	@ResponseBody
-	public ResponseResult<Void> register(String username,String password,String email){
+	public ResponseResult<Void> register(
+			@RequestParam("username") String username,
+			@RequestParam("password") String password,
+			@RequestParam("email") String email){
 		 ResponseResult<Void> rr = null;
 		 try{
 			 User user = new User();
@@ -48,6 +51,7 @@ public class UserController {
 			 user.setPassword(password);
 			 user.setEmail(email);
 			 userService.addUser(user);    
+			 
 			 rr = new ResponseResult<Void>(1,"添加成功！");
 		 }catch(RuntimeException e){
 			 rr = new ResponseResult<Void>(0,e.getMessage());
@@ -75,11 +79,13 @@ public class UserController {
 	
 	
 	
+	
+	
 	//实现异步验证，用户名是否存在
 	@RequestMapping("/checkUsername.do")
 	@ResponseBody
 	public ResponseResult<Void> checkUsername(
-			String username){
+			@RequestParam("username") String username){
 		//1.声明ResponseResult<Void>对象
 		ResponseResult<Void> rr = null;
 		//2.调用业务层方法
@@ -88,17 +94,46 @@ public class UserController {
 		//3.如果b为true；定义状态码 ： 0
 		//   和状态信息:用户名不可以使用
 		if(b){
-			rr = new ResponseResult<Void>(0,
-				"用户名不可以使用");
+			rr = new ResponseResult<Void>(0,"用户名不可以使用");
+				
 		}else{
 		//4.如果b为false；定义状态码 ：1
 		//   和状态信息:用户名可以使用
-			rr = new ResponseResult<Void>(1,
-				"用户名可以使用");
+			rr = new ResponseResult<Void>(1,"用户名可以使用");
+				
 		}
 		return rr;
 	}
 	
 	
-	    
+	//验证邮箱的异步请求方法
+	@RequestMapping("checkEmail.do")
+	@ResponseBody
+	public ResponseResult<Void> checkEmail(
+			String email){
+		ResponseResult<Void> rr = null; 
+		if(userService.checkEmail(email)){
+			rr=new ResponseResult<Void>(0,"邮箱不能使用");   
+		}else{
+			rr=new ResponseResult<Void>(1,"邮箱可以使用");   
+		}
+		return rr;     
+	}
+	
+	//退出的功能
+	@RequestMapping("/exit.do")
+	public String exit(HttpSession session){
+		session.invalidate();
+		return "redirect:../questions/showQuestions.do";
+	}
 }
+
+
+
+
+
+
+
+
+
+

@@ -36,6 +36,22 @@
    	
    	<!-- mvc注解驱动（功能更加强大） -->
   	<mvc:annotation-driven/>
+  	
+  	<!-- 配置登录拦截器 -->
+  	<mvc:interceptors>
+  		<mvc:interceptor>
+  			<!-- 拦截的资源 -->
+			<mvc:mapping path="/user/*"/>
+			<mvc:mapping path="/questions/showAsk.do"/>
+			<!-- 排除的资源 -->
+			<mvc:exclude-mapping path="/user/showRegister.do"/>
+			<mvc:exclude-mapping path="/user/register.do"/>
+			<mvc:exclude-mapping path="/user/showLogin.do"/>
+			<mvc:exclude-mapping path="/user/login.do"/>
+			<!-- 实例化拦截器类 -->
+			<bean class="cn.tedu.qaa.interceptor.LoginInterceptor"/>
+  		</mvc:interceptor>
+  	</mvc:interceptors>
    
 </beans>
 

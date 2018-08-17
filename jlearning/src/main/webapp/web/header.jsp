@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
-		<div class="modal fade" id="myModal"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<!-- <div class="modal fade" id="myModal"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -31,11 +31,11 @@
 						</div>
 					</form>
 				</div>
-				<!-- /.modal-content -->
+				/.modal-content
 			</div>
-			<!-- /.modal -->
+			/.modal
 		</div>
-		<a id="top" name="top"></a>
+		 --><a id="top" name="top"></a>
 		<div class="container question-page-topbar">
 			<div class="col-sm-8 col-md-9 col-lg-9 topbar-leftdiv">
 				<div class="header-logo">
@@ -43,7 +43,7 @@
 						<a class="hlogo" href="../questions/showQuestions.do">JLearning</a>
 					</h1>
 				</div>
-				<form action="#" method="get" class="header-search  hidden-sm hidden-xs ">
+				<form action="../questions/showSearch.do" method="get" class="header-search  hidden-sm hidden-xs ">
 					<button class="btn btn-link">
 						<span class="glyphicon glyphicon-search"></span>
 					</button>
@@ -57,8 +57,8 @@
 						<a class="reglink userlink" href="${pageContext.request.contextPath}/user/showRegister.do">
 							<button type="button" class="btn btn-primary  regbtn">注册</button>
 						</a>
-						<a class="loginlink userlink">
-							<button type="button" id="login_btn" class="btn btn-default  logbtn" data-toggle="modal" data-target="#myModal">登录</button>
+						<a class="loginlink userlink" href="${pageContext.request.contextPath}/user/showLogin.do">
+							<button type="button" id="login_btn" class="btn btn-default  logbtn" >登录</button>
 						</a>
 					</li>
 				</c:if>
@@ -70,16 +70,22 @@
 							</button>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="/ask">提问题</a>
+									<a href="../questions/showAsk.do">发动态</a>
 								</li>
-								<li>
-									<a href="/write">写文章</a>
+								<li style="display: none">
+									<a href="../personal/showWrite.do">写文章</a>
 								</li>
-								<li>
-									<a href="/record">记笔记</a>
+								<li style="display: none">
+									<a href="/personal/showNote.do">记笔记</a>
 								</li>
 							</ul>
 						</div>
+					</li>
+					<li class="user-name">
+						<small>${user.username}</small>
+					</li>
+					<li class="exit">
+						<a href="../user/exit.do"><button>退出</button></a>
 					</li>
 				</c:if>
 				</ul>

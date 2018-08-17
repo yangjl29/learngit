@@ -24,7 +24,7 @@
 				r.qid=q.id
 			order by 
 				q.created_time desc
-			limit 0,10
+			limit #{offset},#{count}
 		</select>
 		
 		<!-- List<QuestionVo> selectHottestTags(); -->
@@ -48,7 +48,7 @@
 				r.qid=q.id
 			order by 
 				r.c desc
-			limit 0,10
+			limit #{offset},#{count}
 		</select>
 		
 		<!-- List<QuestionVo> selectUnAnsweredTags(); -->
@@ -74,33 +74,79 @@
 				r.c is null
 			order by 
 				q.created_time desc
-			limit 0,10
+			limit #{offset},#{count}
 		</select>
 		
-		<!-- List<Question> selectAll(); -->
-		<select id="selectAll" resultType="cn.tedu.qaa.vo.QuestionVo">
+		
+		
+		<!-- Question selectQuesitonById(Integer qid); -->
+		<select id="selectQuesitonById" resultType="cn.tedu.qaa.bean.Question">
 			select
+				id,
+				uid,
+				title,
+				content,
+				created_time createdTime
+			from
+				t_question
+			where
+				id=#{qid}
+		</select>
+		
+		<!-- void insertQuestion(Question question); -->
+		<insert id="insertQuestion" parameterType="cn.tedu.qaa.bean.Question">
+			insert into t_question(
+				uid,
+				title,
+				content
+			)values(
+				#{uid},
+				#{title},
+				#{content}
+			)
+		</insert>
+		
+		<!-- List<QuestionVo> selectQuestionsByKeyword(
+			@Param("key") String key, 
+			@Param("offset") Integer offset, 
+			@Param("count") Integer count); -->
+		<select id="selectQuestionsByKeyword" resultType="cn.tedu.qaa.vo.QuestionVo" >
+			    select
 				q.id,
+				q.uid,
 				u.username,
 				q.title,
+				q.content,
 				q.created_time createdTime
 			from
-				t_question q 
+				t_question q
 			left join
 				t_user u
 			on
 				q.uid=u.id
-			order by
+			where
+				q.title like #{key}
+			order by 
 				q.created_time desc
-			limit 0,10
+			limit #{offset},#{count}
 		</select>
+		
+		<!-- Integer selectQuestionCountByKeyword(String key); -->
+		<select id="selectQuestionCountByKeyword" parameterType="java.lang.String" resultType="java.lang.Integer">
+			select
+				count(*)
+			from
+				t_question
+			where
+				title like #{key}
+		</select>
+		
+		<!-- Integer selectAllQuestionsCount(); -->
+		<select id="selectAllQuestionsCount" resultType="java.lang.Integer">
+			select
+				count(*)
+			from
+				t_question
+		</select>
+		
 	</mapper>
-	
-	
-	
-	
-	
-	
-	
-	
-	

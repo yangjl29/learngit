@@ -12,13 +12,16 @@
 		font-size: 50px;
 		/* text-shadow: 1px -3px 6px #00e7ff; */
 	}
-	
 </style>
-
+<script type="text/javascript">
+	onload = function(){
+		location.href = "user/showLogin.do";
+	}
+</script>
 </head>
 <body>
-	<div>
-		<a href="user/showRegister.do" style="text-decoration: none" >JLearning</a>
-	</div>
+	<!-- <div>
+		<a href="user/showLogin.do" style="text-decoration: none" >JLearning</a>
+	</div> -->
 </body>
 </html>

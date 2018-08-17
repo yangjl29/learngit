@@ -6,12 +6,20 @@ import cn.tedu.qaa.bean.Question;
 import cn.tedu.qaa.vo.QuestionVo;
 
 public interface IQuestionService {
-
-	List<QuestionVo> getNewestTags();
 	
-	List<QuestionVo> getHottestTags();
+	List<QuestionVo> getNewestTags(Integer offset, Integer count);
 	
-	List<QuestionVo> getUnAnsweredTags();
+	List<QuestionVo> getHottestTags(Integer offset, Integer count);
 	
-	List<QuestionVo> getAll();
+	List<QuestionVo> getUnAnsweredTags(Integer offset, Integer count);
+	
+	Question getQuestionById(Integer qid);
+	
+	void addQuestion(Question question);
+	
+	List<QuestionVo> getQuestionsByKeyword(String keyword, Integer offset, Integer count);
+	
+	Integer getQuestionCountByKeyword(String keyword);
+	
+	Integer getAllQuestionsCount();
 }

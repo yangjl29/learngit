@@ -15,7 +15,7 @@ public interface UserMapper {
 	 * @param username
 	 * @return
 	 */
-	User selectByUsername(String username);
+	User selectByUsername(String username);  //查询用户名
 	
 	
 	
@@ -24,5 +24,14 @@ public interface UserMapper {
 	 * @param id
 	 * @return
 	 */
-	User selectUserById(Integer id);
+	User selectUserById(Integer id);    //查询用户名id
+	
+	
+	/**
+	 * 通过邮箱查询
+	 * @param email
+	 * @return：如果存在，那么返回行数；
+	 * 			如果不存在，返回0；
+	 */
+	Integer selectByEmail(String email);    //查询email
 }

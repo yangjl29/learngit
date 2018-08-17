@@ -21,30 +21,32 @@
 					<div class="modal-header">
 						<h4 class="modal-title" id="myModalLabel">欢迎登录</h4>
 					</div>
-					<form action="${pageContext.request.contextPath}/user/login.do" method="post">
+					<form >
 						<div class="login-wrap">
 							<div class="modal-body">
 								<div class="form-group">
 									<label for="username" class="control-label">用户名</label>
-									<input type="text" class="form-control" name="username" tabindex="1" required="required" oninput="setCustomValid('')" placeholder="请输入用户名"
-										autocomplete="off">
-										<span class="msg-error " id="unamespan">用户名长度为6~9位</span>
+									<input type="text" class="form-control" id="username" name="username"
+									       tabindex="1" required="required"  placeholder="请输入用户名"
+										   autocomplete="off">
+										<span class="msg-default hidden" id="unamespan">用户名长度为6~9位</span>
 								</div>
 								<div class="form-group">
 									<label class="control-label">密码</label>
+									<input type="password" class="form-control" id="password" 
+									       name="password" tabindex="2"placeholder="请输入密码">
 									<span class="msg-default hidden" id="passwordspan">密码长度为6~9位</span>
 									
-									<input type="password" class="form-control" name="password" tabindex="2" required="required" placeholder="请输入密码">
 								</div>
 							</div>
 							
 							
 								<p class="pull-right">
-									<a href="#" tabindex="4">忘记密码</a>
+									<a href="forget.jsp" tabindex="4">忘记密码</a>
 								</p>
 
 							<div class="modal-footer">
-								<button type="submit" class="flogbtn btn btn-success" tabindex="3">登录</button>
+								<button type="button" id="bt-login" class="flogbtn btn btn-success" tabindex="3">登录</button>
 							     <span><a href="../user/showRegister.do">没有账号？立即注册</a></span>
 							</div>
 						</div>
@@ -53,8 +55,138 @@
 			</div>
 		</div>
 	</div>
-	
+	      
+	  <script type="text/javascript">
+	  
+	  	$(document).ready(function(){
+	  		
+	  		function checkUserName(){
+				if($("#username").val()==""){
+	  				$("#unamespan").attr("class","msg-error");
+		  			/* $("#unamespan").css("color","red"); */
+		  			$("#unamespan").text("用户名不能为空");
+		  			return false;
+	  			}else if($("#username").val().length<6||$("#username").val().length>9){
+	  				$("#unamespan").attr("class","msg-error");
+		  			/* $("#unamespan").css("color","red"); */
+		  			$("#unamespan").text("用户名长度为6~9位");
+		  			return false;
+	  			}else{
+	  				$("#unamespan").attr("class","msg-success");
+		  			/* $("#unamespan").css("color","blue"); */
+		  			$("#unamespan").text("OK");
+		  			return true;
+	  			}
+	  			
+	  		}
+	  		
+	  		
+	  		
+	  		function checkPassword(){
+	  			
+	  			if($("#password").val()==""){
+	  				$("#passwordspan").attr("class","msg-error");
+		  			/* $("#passwordspan").css("color","red"); */
+		  			$("#passwordspan").text("密码不能为空");
+		  			return false;
+	  			}else if($("#password").val().length<6||$("#password").val().length>9){
+	  				$("#passwordspan").attr("class","msg-error");
+		  			/* $("#passwordspan").css("color","red"); */
+		  			$("#passwordspan").text("密码长度为6~9位");
+		  			return false;
+	  			}else{     
+	  				$("#passwordspan").attr("class","msg-success");
+		  			/* $("#passwordspan").css("color","blue"); */
+		  			$("#passwordspan").text("OK");
+		  			return true;
+	  			}
+	  			
+	  		}
+	  		
 
+	  		
+	  		
+  		$("#username").on("blur",function(){
+  			checkUserName();
+  			
+  		});
+  		$("#username").on("focus",function(){
+  			
+  			$("#unamespan").attr("class","msg-default");
+  			/* $("#passwordspan").css("color","red"); */
+  			$("#unamespan").text("用户名长度为6~9位");
+  			
+  			
+  		});
+  		
+  		$("#password").on("blur",function(){
+  			checkPassword();
+  		});
+  		$("#password").on("focus",function(){
+  			$("#passwordspan").attr("class","msg-default");
+  			/* $("#passwordspan").css("color","red"); */
+  			$("#passwordspan").text("密码长度为6~9位");
+  		});
+	       
+	       
+	       
+  		
+  		
+  		
+  		
+	       
+	       $('bt-login').click(function(){
+	    	   
+	    	  if(checkUserName()&&checkPassword()){
+	    		  $.ajax({
+		    		   url:"../user/login.do",
+		    		   data:"username="+$("#username").val()+"$password="+$("#password").val(),
+		    		   type:"post",
+		    		   dataType:"json",
+		    		   success:function(obj){
+		    			   debugger;
+		    			  if(obj.state==1){
+		    				  location.href='../main/showIndex.do';
+		    			  } else{
+		    				  $("#unamespan").html(obj.message);
+		    				  $("#unamespan").css("color","red");
+		    			  }
+		    		   }
+		    	   });
+	    	  }else{
+	    		  
+	    		  
+	    	  }
+	    	   
+	    	   
+	       });
+	  		
+	  		
+	  	});
+
+	   </script>
+	   
+	   
+	   <script>
+	      $("#bt-login").click(function(){
+	    	 // alert(1);
+	    	 $.ajax({
+	    		 url:"../user/login.do",
+	    		 data:"username="+$("#username").val()+"&password="+$("#password").val(),
+	    		 type:"post",
+	    		 dataType:"json",
+	    		 success:function(obj){
+	    			 if(obj.state==0){
+	    				 $("#unamespan").html(obj.message);
+	    				 $("#unamespan").css("color","red");
+	    			 }else{
+	    				 location.href='../questions/showQuestions.do';
+	    			 }
+	    		 }
+	    	 });
+	      });
+	   </script>
+	   
 </body>
 
 </html>

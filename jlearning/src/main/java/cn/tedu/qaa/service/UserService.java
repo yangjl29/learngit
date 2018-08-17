@@ -57,6 +57,14 @@ public class UserService implements IUserService {
 		return userMapper.selectByUsername(username)!=null;
 	}
 
+
+
+	@Override
+	public boolean checkEmail(String email) {
+		
+		return userMapper.selectByEmail(email)>0;
+	}
+
 	
 	
 }
